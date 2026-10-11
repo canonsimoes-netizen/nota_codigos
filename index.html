@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Códigos de Balcão</title>
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    background: #111;
+    color: #fff;
+    margin: 0;
+    padding: 16px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 0 0 16px 0;
+  }
+  input {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+  }
+  .item {
+    background: #1c1c1c;
+    padding: 18px 16px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+  }
+  .codigo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4fc3f7;
+    margin-top: 6px;
+  }
+  .nota {
+    background: #2a1f0a;
+    color: #ffcc80;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 1.1rem;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>Códigos de Balcão</h1>
+
+<input type="text" id="pesquisa" placeholder="Pesquisar..." oninput="filtrar()">
+
+<div class="item" data-nome="casal ribeiro">
+  Casal Ribeiro
+  <div class="codigo">0964</div>
+</div>
+
+<div class="item" data-nome="alfragide sala contingencia">
+  Alfragide – Sala Contingência
+  <div class="codigo">9977</div>
+</div>
+
+<div class="item" data-nome="sibs">
+  SIBS
+  <div class="codigo">9803</div>
+</div>
+
+<div class="item" data-nome="sgi odivelas">
+  SGI – Odivelas
+  <div class="codigo">2974</div>
+</div>
+
+<div class="item" data-nome="indra amadora">
+  Indra – Amadora
+  <div class="codigo">2975</div>
+</div>
+
+<div class="item" data-nome="adea montijo">
+  Adea – Montijo
+  <div class="codigo">1043</div>
+</div>
+
+<div class="item" data-nome="monumental">
+  Monumental
+  <div class="codigo">9980</div>
+</div>
+
+<div class="item" data-nome="saudade porto">
+  Saudade Porto
+  <div class="codigo">0979</div>
+</div>
+
+<div class="item" data-nome="boavista">
+  Boavista
+  <div class="codigo">0931</div>
+</div>
+
+<div class="item" data-nome="rio tinto">
+  Rio Tinto
+  <div class="codigo">9801</div>
+</div>
+
+<div class="item" data-nome="portela">
+  Portela
+  <div class="codigo">0855</div>
+</div>
+
+<div class="nota">
+  <strong>Atenção (Rio Tinto / Continência do Porto):</strong><br>
+  As impressoras estão configuradas com as regras de balcões.
+</div>
+
+<script>
+function filtrar() {
+  const termo = document.getElementById('pesquisa').value.toLowerCase();
+  document.querySelectorAll('.item').forEach(item => {
+    const nome = item.getAttribute('data-nome');
+    if (nome.includes(termo) || item.innerText.toLowerCase().includes(termo)) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
